@@ -1,114 +1,323 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشروط والأحكام</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>الشروط والأحكام (TOS)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fc;
-            color: #333;
-            direction: rtl;
-            text-align: right;
+        /* Root Variables */
+        :root {
+            --bg-gradient-start: #6a11cb;
+            --bg-gradient-end: #2575fc;
+            --container-bg: rgba(255, 255, 255, 0.85);
+            --text-color: #333;
+            --heading-color: #2c3e50;
+            --subheading-color: #34495e;
+            --border-color: #e0e0e0;
+            --hover-bg: rgba(255, 255, 255, 0.95);
+            --max-container-width: 1000px;
+            --transition-speed: 0.3s;
+        }
+
+        /* Global Reset & Base */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #ffffff;
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+            -webkit-tap-highlight-color: transparent;
         }
-        h1, h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-            padding-bottom: 5px;
+
+        /* Container with Glassmorphism & Fade-in */
+        .container {
+            background: var(--container-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            max-width: var(--max-container-width);
+            width: 100%;
+            padding: 40px 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            max-height: 90vh;
+            animation: fadeIn 1s ease-out;
         }
-        ul {
-            list-style: none;
-            padding: 0;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        li {
-            margin: 10px 0;
-            padding: 10px;
-            background: #e9f1ff;
-            border-radius: 5px;
+
+        /* Custom Scrollbar for WebKit */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-        .footer {
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Headings */
+        h1 {
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #555;
+            margin-bottom: 30px;
+            font-size: clamp(2em, 5vw, 2.8em);
+            color: var(--heading-color);
+            letter-spacing: 1px;
+            word-break: break-word;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: clamp(1.4em, 4vw, 1.8em);
+            color: var(--subheading-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            word-break: break-word;
+        }
+
+        /* Text & Lists */
+        p,
+        li {
+            font-size: clamp(1em, 2.5vw, 1.15em);
+            line-height: 1.8;
+            word-break: break-word;
+        }
+
+        ul,
+        ol {
+            margin: 10px 25px;
+            list-style-position: inside;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Section Hover Effects */
+        .tos-section {
+            transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .tos-section:hover {
+            background-color: var(--hover-bg);
+            transform: translateX(5px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: clamp(1.8em, 6vw, 2.2em);
+            }
+
+            h2 {
+                font-size: clamp(1.4em, 4vw, 1.6em);
+            }
+
+            p,
+            li {
+                font-size: clamp(0.95em, 3vw, 1.05em);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: clamp(1.6em, 8vw, 2em);
+            }
+
+            h2 {
+                font-size: clamp(1.3em, 5vw, 1.4em);
+            }
+
+            ul,
+            ol {
+                margin: 8px 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 15px 10px;
+            }
+
+            h1 {
+                font-size: clamp(1.4em, 8vw, 1.8em);
+            }
+
+            h2 {
+                font-size: clamp(1.2em, 5vw, 1.3em);
+            }
+
+            p,
+            li {
+                font-size: clamp(0.9em, 3vw, 1em);
+            }
+
+            ul,
+            ol {
+                margin: 8px 10px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>الشروط والأحكام</h1>
-        
-        <h2>سياسة استرداد الأموال</h2>
-        <ul>
-            <li>جميع المدفوعات عبر فيزا، ماستر كارد، أو أبل باي غير قابلة للاسترداد بعد الدفع.</li>
-            <li>في بعض الحالات، يكون المبلغ غير مسترد بغض النظر عن وسيلة الدفع.</li>
-            <li>يتم إرجاع المبلغ فقط في حال عدم وصول الخدمة أو وجود مشكلة عامة.</li>
-            <li>يجب التواصل مع الدعم قبل طلب الاسترداد.</li>
-            <li>إذا لم يتم الرد خلال 15 يومًا، يحق للعميل استرداد المبلغ.</li>
-        </ul>
-        
-        <h2>خدمة توثيق الحسابات</h2>
-        <ul>
-            <li>الخدمة نهائية ولا يوجد استرداد مالي.</li>
-            <li>يمكن استرداد المبلغ فقط في حال فقدان التوثيق أو عدم القدرة على التوثيق.</li>
-            <li>للاستفسارات، يرجى التواصل مع المطور عبدلله نوفان.</li>
-        </ul>
-        
-        <h2>خدمة استرجاع الحسابات</h2>
-        <ul>
-            <li>تطبيق الضمان الذهبي وفقًا للشروط المحددة.</li>
-            <li>في بعض الحالات، لا يكون المبلغ مستردًا ويتم إبلاغ العميل بذلك مسبقًا.</li>
-        </ul>
-        
-        <h2>خدمة رفع طلب استعلام</h2>
-        <ul>
-            <li>تكلفة هذه الخدمة غير مستردة نهائيًا.</li>
-        </ul>
-        
-        <h2>خدمة إنشاء المواقع</h2>
-        <ul>
-            <li>يتم دفع المبلغ كاملًا مسبقًا.</li>
-            <li>تتم الخدمة خلال الفترة المتفق عليها بين المطور والمشتري.</li>
-            <li>إذا تأخر المطور عن موعد التسليم لمدة لا تتجاوز ٧ أيام، يكون العميل مؤهلًا لاسترداد الأموال.</li>
-            <li>يجب على العميل التعاون مع المطور وإبلاغه برغبته في استرجاع المبلغ المدفوع.</li>
-            <li>في حال تسليم الموقع على أكمل وجه، فالمبلغ غير مسترد نهائيًا ولا يوجد عودة في القرار.</li>
-            <li>يتم إرجاع المبلغ فقط في الحالات التي يحددها المطور، وفي حالات تعطل الموقع وعدم إمكانية حل مشاكله.</li>
-        </ul>
-        
-        <h2>التعديلات على الشروط</h2>
-        <ul>
-            <li>يحق للإدارة تعديل الشروط دون إشعار مسبق.</li>
-            <li>يقع على العميل مسؤولية مراجعة الشروط بشكل دوري.</li>
-        </ul>
-        
-        <h2>النزاعات والمسؤوليات</h2>
-        <ul>
-            <li>في حال وجود نزاع، يجب التواصل مع الدعم الفني أولاً.</li>
-            <li>لا تتحمل المنصة أي مسؤولية عن سوء استخدام الخدمة.</li>
-            <li>يعتبر عدم قراءة الشروط مسؤولية العميل بالكامل.</li>
-        </ul>
-        
-        <h2>الموافقة على الشروط</h2>
-        <ul>
-            <li>باستخدام الخدمة، يقر العميل بموافقته على جميع الشروط المذكورة.</li>
-        </ul>
-        
-        <h2>حقوق المالك والمطور</h2>
-        <p>جميع الحقوق محفوظة للمطور والمالك عبدلله نوفان.</p>
-        
-        <div class="footer">© 2025 جميع الحقوق محفوظة</div>
+        <h1>الشروط والأحكام (TOS)</h1>
+
+        <section class="tos-section">
+            <h2>1. سياسة استرداد الأموال</h2>
+            <ul>
+                <li>جميع المدفوعات التي تتم عبر فيزا، ماستر كارد، أو أبل باي غير قابلة للاسترداد بعد إتمام عملية الدفع.
+                </li>
+                <li>في بعض الحالات، إذا قمت بشراء خدمة معينة، فإن المبلغ المدفوع يكون غير قابل للاسترداد نهائيًا بغض
+                    النظر عن وسيلة الدفع المستخدمة.</li>
+                <li>يتم إرجاع المبلغ فقط في حالة عدم وصول الخدمة إلى العميل بشكل صحيح أو وجود مشكلة عامة في الخدمة، ويتم
+                    تحديد ذلك من قبل المطور أو الدعم الفني وليس العميل.</li>
+                <li>ينطبق هذا الشرط على جميع منصات الدفع، وفي حال وجود مشكلة، يتعين على العميل التواصل مع المطور أو
+                    الدعم الفني لحل المشكلة قبل المطالبة باسترداد المبلغ.</li>
+                <li>إذا لم يتم الرد على العميل من قبل المطور أو الدعم الفني خلال 15 يومًا من طلبه للاستفسار أو حل
+                    المشكلة، يحق له استرداد المبلغ بالكامل.</li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>2. خدمة توثيق الحسابات</h2>
+            <ul>
+                <li>خدمة توثيق الحسابات هي خدمة نهائية، ولا يوجد فيها إرجاع أي مبلغ أو استرداد مالي بتاتاً.</li>
+                <li>يمكن استرداد المبلغ فقط في الحالات التالية:
+                    <ol>
+                        <li>ذهاب إشارة التوثيق بعد التفعيل.</li>
+                        <li>عدم القدرة على التوثيق بالشكل المطلوب أو الصحيح.</li>
+                        <li>في بعض الحالات النادرة، يرجى التواصل مع الدعم الفني أو المطور عبدلله نوفان لمعرفة التفاصيل.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>3. خدمة استرجاع الحسابات</h2>
+            <ul>
+                <li>في بعض الحالات، يتم تطبيق الضمان الذهبي لضمان استرجاع الحساب وفقًا للشروط المحددة.</li>
+                <li>في بعض الحالات الأخرى، المبلغ غير مسترد، وسيتم إبلاغ العميل بذلك مسبقًا من قبل المطور، الدعم الفني،
+                    أو الشخص المعني المسؤول عن العملية.</li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>4. خدمة رفع طلب استعلام أو استفسار عن حساب معين</h2>
+            <ul>
+                <li>تكلفة هذه الخدمة غير مستردة نهائيًا في جميع الحالات، وذلك عند طلب المشتري أو الزبون لهذه الخدمة.
+                </li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>5. الالتزام بالخدمة</h2>
+            <ul>
+                <li>عند إتمام عملية الشراء، يقر العميل بأنه فهم شروط الخدمة وأنه لن يكون مؤهلاً لاسترداد المبلغ إلا في
+                    الحالات التي يحددها المطور أو الدعم الفني.</li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>6. التعديلات على الشروط</h2>
+            <ul>
+                <li>تحتفظ الإدارة بالحق في تعديل هذه الشروط أو تحديثها في أي وقت دون إشعار مسبق، ويقع على العميل مسؤولية
+                    مراجعة الشروط والأحكام بشكل دوري.</li>
+                <li>ليس من مسؤولية المطور أو مالك هذه الشروط والأحكام تذكير العملاء بأي تحديثات أو تغييرات على الشروط
+                    والأحكام.</li>
+                <li>يقع على عاتق العميل متابعة أي تغييرات أو تحديثات تتم على هذه الشروط والأحكام، والاستمرار في استخدام
+                    الخدمات يعني الموافقة الضمنية على أي تحديثات جديدة.</li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>7. النزاعات والمسؤوليات</h2>
+            <ul>
+                <li>في حال وجود أي نزاع حول عملية الدفع أو استلام الخدمة، يجب على العميل التواصل مع الدعم الفني لحل
+                    المشكلة وفقًا للسياسات المعتمدة.</li>
+                <li>لا تتحمل المنصة أي مسؤولية عن سوء استخدام الخدمة من قبل العميل بعد استلامها.</li>
+                <li>المطور أو الدعم الفني أو المالك غير مسؤول في حال عدم موافقة العميل على الشروط والأحكام أو عدم
+                    الانتباه جيدًا وقراءتها بالكامل.</li>
+                <li>يعتبر عدم الانتباه أو عدم قراءة الشروط والأحكام بشكل صحيح سهوًا وإهمالًا من العميل، ويتحمل العميل
+                    كامل المسؤولية عن ذلك دون أي التزام من المطور أو المالك أو الدعم الفني.</li>
+                <li>في حال تم التعامل مع المطور عبر وسائل التواصل الاجتماعي، حتى ولو في الخاص، فإن جميع القواعد
+                    والتعليمات تنطبق على المشتري بالكامل، وهو يتحمل مسؤولية كافة قراراته.</li>
+                <li>سيتم تنبيه المشتري مرة واحدة فقط لمراجعة القواعد والشروط قبل إتمام أي تعامل، وبعد ذلك يتحمل
+                    المسؤولية الكاملة عن أي قرار يتخذه.</li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>8. اتفاق دفع نصف المبلغ</h2>
+            <ul>
+                <li>في حال تم الاتفاق بين المطور والعميل على دفع نصف المبلغ (وهذا أمر نادر نظرًا لأنه يتعين الدفع مقدمًا
+                    لجميع الخدمات)، فإنه في حال قيام العميل بدفع نصف المبلغ وعدم استكمال المبلغ المتفق عليه بعد تقديم
+                    الخدمة بقيمة نصف المبلغ، يكون المطور مؤهلاً قانونياً لاتخاذ الإجراءات اللازمة لمطالبة العميل
+                    بالمستحقات، ويجوز له سحب الخدمة بأكملها دون تحمل المطور لأي تبعات إضافية.</li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>9. الموافقة على الشروط</h2>
+            <ul>
+                <li>باستخدامك لهذه الخدمة وإتمام عملية الدفع، فإنك تقر بأنك وافقت على جميع الشروط والأحكام المذكورة
+                    أعلاه.</li>
+            </ul>
+        </section>
+
+        <section class="tos-section">
+            <h2>حقوق المالك والمطور</h2>
+            <ul>
+                <li>جميع الحقوق محفوظة للمطور والمالك عبدلله نوفان.</li>
+            </ul>
+        </section>
     </div>
 </body>
+
 </html>
